@@ -13,8 +13,6 @@ export const postInfoModal = new PostInfoModal("info");
 export const confirmInfoModal = new ConfirmActionModal("confirm");
 export const formEditPostModal = new FormEditPostModal("edit");
 
-
-
 console.log(formEditPostModal);
 
 export const notification = new Notification("notification");
@@ -107,4 +105,67 @@ function createObject(kyesArray, valueArray) {
 
 console.log(createObject(keys, value))
 
+*/
+
+/*
+const forTestArr = [
+    { role: "admin", status: "online" },
+    { role: "user", status: "online" },
+    { role: "user", status: "offline" },
+    { role: "admin", status: "online" },
+    { name: "Vlad", age: "32" },
+    { name: "Sveta", age: "32" },
+    { name: "Anna", age: "32" },
+    { car: "BMV", age: "1990" },
+];
+
+function filterByKey(key, arr) {
+    // 1 - название ключа объекта
+    // 2 - массив, который будет фильтроваться 
+    // функция должна вернуть массив объектов, которые содеражт указанный ключ или если ключа нет - вернуть null
+    const filtredArray = arr.filter((el) => el.hasOwnProperty(key))
+    return filtredArray.length ? filtredArray : null
+}
+
+console.log(filterByKey("car", forTestArr))
+
+function filterByRole(role, arr) {
+    // 1 - значение role объекта (т.е. его значение - admin, user)
+    // 2 - массив, который будет фильтроваться 
+    // функция должна вернуть массив объектов, которые содеражт указанную роль
+    return arr.filter((el) => el.role === role)
+
+}
+
+console.log(filterByRole("admin", forTestArr))
+
+function filterByStatus(status, arr) {
+    // 1 - значение status объекта (т.е. его значение - online, offline)
+    // 2 - массив, который будет фильтроваться 
+    // функция должна вернуть массив объектов, которые содеражт указанный статус
+
+}
+
+console.log(filterByRole("online", forTestArr))
+
+
+
+const arr1 = ['opel', 'bmw', 'audi', 'mazda', 'nissan', 'mercedes'] // общий список каталога 
+const str = 'bmw' // значение для фильтра 
+const arr2 = ['bmw', 'mercedes'] // масив значений для фильтра 
+
+function foo(arr1, str) {
+    // функция должна возвращать массив элементов, которые пользователь не выбрал 
+    return arr1.filter((el) => el !== str)
+}
+
+foo(arr1, str)
+
+function fooTemp(arr1, arr2) {
+    return arr1.filter((el) => {
+        return !arr2.find((item) => item === el)
+    })
+}
+
+console.log(fooTemp(arr1, arr2))
 */

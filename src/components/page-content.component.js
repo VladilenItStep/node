@@ -48,7 +48,9 @@ function onTodoHandler(e) {
     }
 
     if (e.target.classList.contains('todos__item-status')) {
-        console.log('todos__item-status');
+        this.classList.toggle('todos__item_done');
+        Storage.updateTodoStatus(todoId)
+
     }
     if (e.target.classList.contains('todos__item-edit')) {
         formEditPostModal.show(todoId)
