@@ -13,7 +13,8 @@ export const postInfoModal = new PostInfoModal("info");
 export const confirmInfoModal = new ConfirmActionModal("confirm");
 export const formEditPostModal = new FormEditPostModal("edit");
 
-console.log(formEditPostModal);
+console.log(pageContent);
+
 
 export const notification = new Notification("notification");
 
@@ -169,3 +170,36 @@ function fooTemp(arr1, arr2) {
 
 console.log(fooTemp(arr1, arr2))
 */
+
+
+// есть [2, 'dwa' 'dwa', {}, null, false, 5, 1]
+
+// нужно реализовать ф-ю sum(), которая на вход будет принимать массив данных с любыми типами
+
+// function sum(arr) {
+//     return arr.reduce((acc, item) => {
+//         if (typeof item === 'number') {
+//             return acc += item
+//                 // acc = acc + item
+//         }
+//         return acc
+//     }, 0)
+// }
+
+// const sum2 = (arr) => arr.reduce((acc, item) => typeof item === 'number' ? acc += item : acc, 0)
+
+// console.log(sum2([2, 4, 3, 'dwa', {}, null, false, 5, 1]))
+
+// function sum3(arr) {
+//     let sum = 0
+
+//     arr.forEach(item => {
+//         if (typeof item === 'number') {
+//             sum += item
+//         }
+//     });
+
+//     return sum
+// }
+
+// console.log(sum3([2, 4, 3, 'dwa', {}, null, false, 5, 1]))
