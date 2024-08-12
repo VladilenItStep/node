@@ -5,6 +5,7 @@ export class ThemeComponent extends Component {
     constructor(id, pageConent) {
         super(id)
         this.pageConent = pageConent
+        this.componet.addEventListener('change', onThemeHandler.bind(this))
     }
 
     init() {
@@ -13,11 +14,12 @@ export class ThemeComponent extends Component {
         } else {
             this.componet.value = 'gray'
         }
-
-        this.componet.addEventListener('change', onThemeHandler.bind(this))
     }
 
     value() {
+        const { theme } = Storage.getUserData()
+        this.componet.value = theme
+        this.pageConent.classList.remove('gray', 'yellow', 'red')
         return this.componet.value
     }
 }

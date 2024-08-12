@@ -6,14 +6,16 @@ import { PostInfoModal } from "./components/modals/todo-info.components.js";
 import { ConfirmActionModal } from "./components/modals/confirm-action.component.js";
 import { FormEditPostModal } from "./components/modals/edit-form.comonent.js";
 
+export const originUrl = window.location.href
+console.log(originUrl);
+
+
 const loginPage = new PageAuthorization("login");
 export const pageContent = new PageContent("page-content", loginPage);
 export const formCreatePostModal = new FormCreatePostModal("create");
 export const postInfoModal = new PostInfoModal("info");
 export const confirmInfoModal = new ConfirmActionModal("confirm");
 export const formEditPostModal = new FormEditPostModal("edit");
-
-console.log(pageContent);
 
 
 export const notification = new Notification("notification");
@@ -22,6 +24,13 @@ if (JSON.parse(localStorage.getItem("selectedUserId"))) {
     loginPage.hide();
     pageContent.show();
 }
+
+window.addEventListener('popstate', function(e) {
+    const userId = JSON.parse(localStorage.getItem('selectedUserId'))
+    if (e.state && userId) {
+        postInfoModal.show(e.state)
+    }
+})
 
 /*
 const wareStore = {
@@ -203,3 +212,75 @@ console.log(fooTemp(arr1, arr2))
 // }
 
 // console.log(sum3([2, 4, 3, 'dwa', {}, null, false, 5, 1]))
+
+// Реализовать функцию transformData, которая принимает объект.
+// пример объекта 
+
+/*
+const obj = {
+        name: 'Vlad',
+        age: 32,
+        sayHi() {
+            console.log('Hello ', this.name)
+        },
+        empty: undefined,
+        car: undefined
+    }
+    // и возвращает новый объект с такими же полями, но если значение у объекта undefined
+    // то происходит его замена на строку 'пусто'
+
+const obj2 = {
+    name: 'Vlad',
+    age: 32,
+    sayHi() {
+        console.log('Hello ', this.name)
+    },
+    empty: 'пусто',
+    car: 'пусто'
+}
+
+function transformData(obj) {
+    const result = {}
+    for (let key in obj) {
+        if (obj[key] === undefined) {
+            result[key] = 'пусто'
+        } else {
+            result[key] = obj[key]
+        }
+    }
+    return result
+}
+
+
+function transformData2(obj) {
+    const result = Object.keys(obj).reduce((acc, key) => {
+        if (obj[key] === undefined) {
+            acc[key] = 'пусто'
+            return acc
+        } else {
+            acc[key] = obj[key]
+            return acc
+        }
+    }, {})
+
+    return result
+}
+
+
+function transformData3(obj) {
+
+    const result = Object.entries(obj).map(([key, value]) => {
+        if (value === undefined) {
+            return [key, 'пусто']
+        } else {
+            return [key, value]
+        }
+
+    })
+    return Object.fromEntries(result)
+}
+
+
+
+console.log(transformData3(obj));
+*/
